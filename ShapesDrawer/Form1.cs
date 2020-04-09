@@ -14,7 +14,8 @@ namespace ShapesDrawer
     public partial class Form1 : Form
     {
         private Shape shape;
-        private Color color; 
+        private Color color;
+        List<Image> backgrounds = new List<Image>();
 
         public Form1()
         {
@@ -26,6 +27,9 @@ namespace ShapesDrawer
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty
     |       BindingFlags.Instance | BindingFlags.NonPublic, null,
             drawPanel, new object[] { true });
+
+            backgrounds.Add(null);
+            backgrounds.Add(null);
         }
 
         private void freeHand_Click(object sender, EventArgs e)
@@ -67,6 +71,51 @@ namespace ShapesDrawer
         {
             Panel p = (Panel)sender;
             color = p.BackColor;
+        }
+
+        private void closeApp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maximize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void minimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void tabControl_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            var selectedTab = e.TabPageIndex;
+            //var selectedBackground = drawPanel.BackgroundImage;
+            drawPanel.BackgroundImage = backgrounds[selectedTab];
+        }
+
+        private void tabControl_Deselecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (e.TabPageIndex >= 0)
+            {
+                var deselectedTab = e.TabPageIndex;
+                // var deselectedBackground = drawPanel.BackgroundImage;
+                backgrounds[deselectedTab] = drawPanel.BackgroundImage;
+            }
+        }
+
+        private void addTab_Click(object sender, EventArgs e)
+        {
+            backgrounds.Add(null);
+            tabControl.TabPages.Add("DrawTab");
+        }
+
+        private void deleteTab_Click(object sender, EventArgs e)
+        {
+            var deleteTab = tabControl.SelectedIndex;
+            backgrounds.RemoveAt(deleteTab);
+            tabControl.TabPages.Remove(tabControl.TabPages[deleteTab]);
         }
     }
 }
