@@ -22,6 +22,11 @@ namespace ShapesDrawer
                 SetEndpoint(mouseEventArg.Location); 
                 GetDrawpanel().Refresh();
             }
+            else
+            {
+                SetEndpoint(new Point(0, 0));
+                SetStartpoint(new Point(0, 0));
+            }
         }
 
         public override void Paint(PaintEventArgs paintEventArg)

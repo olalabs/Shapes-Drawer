@@ -31,6 +31,11 @@ namespace ShapesDrawer
             return click; 
         }
 
+        public void SetStartpoint(Point startpoint)
+        {
+            this.startpoint = startpoint;
+        }
+
         public Point GetStartpoint()
         {
             return startpoint; 
