@@ -64,7 +64,9 @@
             this.panel19 = new System.Windows.Forms.Panel();
             this.panel20 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
+            this.toolbar = new System.Windows.Forms.Panel();
             this.tabControl.SuspendLayout();
+            this.toolbar.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel15
@@ -193,9 +195,9 @@
             this.line.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.line.FlatAppearance.BorderSize = 0;
             this.line.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.line.Location = new System.Drawing.Point(485, 9);
+            this.line.Location = new System.Drawing.Point(493, 0);
             this.line.Name = "line";
-            this.line.Size = new System.Drawing.Size(42, 38);
+            this.line.Size = new System.Drawing.Size(44, 36);
             this.line.TabIndex = 17;
             this.line.UseVisualStyleBackColor = true;
             this.line.Click += new System.EventHandler(this.line_Click);
@@ -206,9 +208,9 @@
             this.freeHand.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.freeHand.FlatAppearance.BorderSize = 0;
             this.freeHand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.freeHand.Location = new System.Drawing.Point(425, 9);
+            this.freeHand.Location = new System.Drawing.Point(411, 0);
             this.freeHand.Name = "freeHand";
-            this.freeHand.Size = new System.Drawing.Size(37, 38);
+            this.freeHand.Size = new System.Drawing.Size(44, 36);
             this.freeHand.TabIndex = 15;
             this.freeHand.UseVisualStyleBackColor = true;
             this.freeHand.Click += new System.EventHandler(this.freeHand_Click);
@@ -219,9 +221,9 @@
             this.rectangle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.rectangle.FlatAppearance.BorderSize = 0;
             this.rectangle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rectangle.Location = new System.Drawing.Point(551, 9);
+            this.rectangle.Location = new System.Drawing.Point(584, 0);
             this.rectangle.Name = "rectangle";
-            this.rectangle.Size = new System.Drawing.Size(42, 38);
+            this.rectangle.Size = new System.Drawing.Size(44, 36);
             this.rectangle.TabIndex = 16;
             this.rectangle.UseVisualStyleBackColor = true;
             this.rectangle.Click += new System.EventHandler(this.rectangle_Click);
@@ -232,7 +234,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage2);
-            this.tabControl.Location = new System.Drawing.Point(224, 60);
+            this.tabControl.Location = new System.Drawing.Point(224, 86);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(625, 42);
@@ -270,9 +272,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.drawPanel.BackColor = System.Drawing.SystemColors.Window;
             this.drawPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.drawPanel.Location = new System.Drawing.Point(224, 82);
+            this.drawPanel.Location = new System.Drawing.Point(224, 108);
             this.drawPanel.Name = "drawPanel";
-            this.drawPanel.Size = new System.Drawing.Size(625, 379);
+            this.drawPanel.Size = new System.Drawing.Size(625, 353);
             this.drawPanel.TabIndex = 21;
             this.drawPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.drawPanel_Paint);
             this.drawPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.drawPanel_MouseDown);
@@ -327,9 +329,9 @@
             this.saveDrawing.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.saveDrawing.FlatAppearance.BorderSize = 0;
             this.saveDrawing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveDrawing.Location = new System.Drawing.Point(21, 9);
+            this.saveDrawing.Location = new System.Drawing.Point(12, 0);
             this.saveDrawing.Name = "saveDrawing";
-            this.saveDrawing.Size = new System.Drawing.Size(37, 36);
+            this.saveDrawing.Size = new System.Drawing.Size(44, 36);
             this.saveDrawing.TabIndex = 25;
             this.saveDrawing.UseVisualStyleBackColor = true;
             this.saveDrawing.Click += new System.EventHandler(this.saveDrawing_Click);
@@ -340,9 +342,9 @@
             this.loadFromFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.loadFromFile.FlatAppearance.BorderSize = 0;
             this.loadFromFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.loadFromFile.Location = new System.Drawing.Point(69, 9);
+            this.loadFromFile.Location = new System.Drawing.Point(62, 0);
             this.loadFromFile.Name = "loadFromFile";
-            this.loadFromFile.Size = new System.Drawing.Size(42, 36);
+            this.loadFromFile.Size = new System.Drawing.Size(44, 40);
             this.loadFromFile.TabIndex = 26;
             this.loadFromFile.UseVisualStyleBackColor = true;
             this.loadFromFile.Click += new System.EventHandler(this.loadFromFile_Click);
@@ -353,9 +355,9 @@
             this.addTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.addTab.FlatAppearance.BorderSize = 0;
             this.addTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addTab.Location = new System.Drawing.Point(224, 9);
+            this.addTab.Location = new System.Drawing.Point(112, 0);
             this.addTab.Name = "addTab";
-            this.addTab.Size = new System.Drawing.Size(51, 36);
+            this.addTab.Size = new System.Drawing.Size(44, 36);
             this.addTab.TabIndex = 27;
             this.addTab.UseVisualStyleBackColor = true;
             this.addTab.Click += new System.EventHandler(this.addTab_Click);
@@ -366,9 +368,9 @@
             this.deleteTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.deleteTab.FlatAppearance.BorderSize = 0;
             this.deleteTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteTab.Location = new System.Drawing.Point(297, 9);
+            this.deleteTab.Location = new System.Drawing.Point(162, 0);
             this.deleteTab.Name = "deleteTab";
-            this.deleteTab.Size = new System.Drawing.Size(41, 36);
+            this.deleteTab.Size = new System.Drawing.Size(44, 36);
             this.deleteTab.TabIndex = 28;
             this.deleteTab.UseVisualStyleBackColor = true;
             this.deleteTab.Click += new System.EventHandler(this.deleteTab_Click);
@@ -463,12 +465,30 @@
             this.panel21.TabIndex = 31;
             this.panel21.Click += new System.EventHandler(this.colorPanel_Click);
             // 
+            // toolbar
+            // 
+            this.toolbar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.toolbar.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.toolbar.Controls.Add(this.rectangle);
+            this.toolbar.Controls.Add(this.line);
+            this.toolbar.Controls.Add(this.freeHand);
+            this.toolbar.Controls.Add(this.deleteTab);
+            this.toolbar.Controls.Add(this.addTab);
+            this.toolbar.Controls.Add(this.loadFromFile);
+            this.toolbar.Controls.Add(this.saveDrawing);
+            this.toolbar.Location = new System.Drawing.Point(0, 39);
+            this.toolbar.Name = "toolbar";
+            this.toolbar.Size = new System.Drawing.Size(876, 41);
+            this.toolbar.TabIndex = 34;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(875, 470);
+            this.Controls.Add(this.toolbar);
             this.Controls.Add(this.panel19);
             this.Controls.Add(this.panel18);
             this.Controls.Add(this.panel21);
@@ -478,11 +498,7 @@
             this.Controls.Add(this.panel17);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.deleteTab);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.addTab);
-            this.Controls.Add(this.loadFromFile);
-            this.Controls.Add(this.saveDrawing);
             this.Controls.Add(this.minimize);
             this.Controls.Add(this.maximize);
             this.Controls.Add(this.closeApp);
@@ -499,14 +515,12 @@
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.line);
-            this.Controls.Add(this.freeHand);
-            this.Controls.Add(this.rectangle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.Text = "Shape Drawer";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.tabControl.ResumeLayout(false);
+            this.toolbar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -548,6 +562,7 @@
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Panel toolbar;
     }
 }
 

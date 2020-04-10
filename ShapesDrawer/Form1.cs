@@ -25,6 +25,18 @@ namespace ShapesDrawer
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
+        //rounded corners
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,     // x-coordinate of upper-left corner
+            int nTopRect,      // y-coordinate of upper-left corner
+            int nRightRect,    // x-coordinate of lower-right corner
+            int nBottomRect,   // y-coordinate of lower-right corner
+            int nWidthEllipse, // width of ellipse
+            int nHeightEllipse // height of ellipse
+        );
+
 
         public Form1()
         {
@@ -34,8 +46,13 @@ namespace ShapesDrawer
 
             //double buffering to avoid panel flickering during drawing
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty
-    | BindingFlags.Instance | BindingFlags.NonPublic, null,
+            | BindingFlags.Instance | BindingFlags.NonPublic, null,
             drawPanel, new object[] { true });
+
+            /*
+            this.FormBorderStyle = FormBorderStyle.None;
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
+            */
 
             backgrounds.Add(null);
             backgrounds.Add(null);
@@ -91,7 +108,15 @@ namespace ShapesDrawer
 
         private void maximize_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+
         }
 
         private void minimize_Click(object sender, EventArgs e)
@@ -133,7 +158,7 @@ namespace ShapesDrawer
                 backgrounds.RemoveAt(deleteTab);
                 tabControl.TabPages.Remove(tabControl.TabPages[deleteTab]);
             }
-            else
+            if(tabControl.SelectedIndex == -1)
             {
                 System.Windows.Forms.Application.Exit();
             }
@@ -141,35 +166,34 @@ namespace ShapesDrawer
 
         private void saveDrawing_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            Bitmap bmp = new Bitmap(drawPanel.Width, drawPanel.Height - 50, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+            Graphics Grap = Graphics.FromImage(bmp);
 
-            // Display the openFile dialog.
-            DialogResult result = folderBrowserDialog.ShowDialog();
-
-            String saveDirectoryPath = "";
-
-            // OK button was pressed.
-            if (result == DialogResult.OK)
+            Grap.CopyFromScreen(PointToScreen(drawPanel.Location).X, PointToScreen(drawPanel.Location).Y, 0, 0, drawPanel.Size, CopyPixelOperation.SourceCopy);
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "(*.bmp; *.jpg; *.jpeg,*.png)| *.BMP; *.JPG; *.JPEG; *.PNG";
+            DialogResult dialogResult = save.ShowDialog();
+            if (dialogResult == DialogResult.OK)
             {
-                saveDirectoryPath = folderBrowserDialog.SelectedPath;
+                bmp.Save(save.FileName);
+                MessageBox.Show("The picture has been saved!");
             }
         }
 
         private void loadFromFile_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
 
-            // Display the openFile dialog.
-            DialogResult result = folderBrowserDialog.ShowDialog();
-
-            String openDirectoryPath = "";
-
-            // OK button was pressed.
-            if (result == DialogResult.OK)
+            using (OpenFileDialog dlg = new OpenFileDialog())
             {
-                openDirectoryPath = folderBrowserDialog.SelectedPath;
+                dlg.Title = "Open Image";
+                dlg.Filter = "(*.bmp; *.jpg; *.jpeg,*.png)| *.BMP; *.JPG; *.JPEG; *.PNG";
 
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    drawPanel.BackgroundImage = Image.FromFile(dlg.FileName);
+                }
             }
+
 
         }
 
