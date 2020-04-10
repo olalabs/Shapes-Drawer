@@ -148,6 +148,8 @@ namespace ShapesDrawer
         {
             backgrounds.Add(null);
             tabControl.TabPages.Add("DrawTab");
+
+            tabControl.SelectedIndex = tabControl.TabCount - 1;
         }
 
         private void deleteTab_Click(object sender, EventArgs e)
