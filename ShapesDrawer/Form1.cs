@@ -25,6 +25,7 @@ namespace ShapesDrawer
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
+
         //rounded corners
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -33,10 +34,9 @@ namespace ShapesDrawer
             int nTopRect,      // y-coordinate of upper-left corner
             int nRightRect,    // x-coordinate of lower-right corner
             int nBottomRect,   // y-coordinate of lower-right corner
-            int nWidthEllipse, // width of ellipse
-            int nHeightEllipse // height of ellipse
+            int nWidthEllipse,
+            int nHeightEllipse
         );
-
 
         public Form1()
         {
@@ -49,14 +49,12 @@ namespace ShapesDrawer
             | BindingFlags.Instance | BindingFlags.NonPublic, null,
             drawPanel, new object[] { true });
 
-            /*
+            //rounded corners
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-            */
-
+            
             backgrounds.Add(null);
             backgrounds.Add(null);
-
 
         }
 
@@ -111,10 +109,12 @@ namespace ShapesDrawer
             if (this.WindowState == FormWindowState.Normal)
             {
                 this.WindowState = FormWindowState.Maximized;
+                Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             }
             else
             {
                 this.WindowState = FormWindowState.Normal;
+                Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             }
 
         }
@@ -129,7 +129,6 @@ namespace ShapesDrawer
             if (e.TabPageIndex >= 0)
             {
                 var selectedTab = e.TabPageIndex;
-                //var selectedBackground = drawPanel.BackgroundImage;
                 drawPanel.BackgroundImage = backgrounds[selectedTab];
             }
         }
@@ -139,7 +138,6 @@ namespace ShapesDrawer
             if (e.TabPageIndex >= 0)
             {
                 var deselectedTab = e.TabPageIndex;
-                // var deselectedBackground = drawPanel.BackgroundImage;
                 backgrounds[deselectedTab] = drawPanel.BackgroundImage;
             }
         }
@@ -187,7 +185,6 @@ namespace ShapesDrawer
 
             using (OpenFileDialog dlg = new OpenFileDialog())
             {
-                dlg.Title = "Open Image";
                 dlg.Filter = "(*.bmp; *.jpg; *.jpeg,*.png)| *.BMP; *.JPG; *.JPEG; *.PNG";
 
                 if (dlg.ShowDialog() == DialogResult.OK)
@@ -195,8 +192,6 @@ namespace ShapesDrawer
                     drawPanel.BackgroundImage = Image.FromFile(dlg.FileName);
                 }
             }
-
-
         }
 
         //moving the window
