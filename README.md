@@ -39,7 +39,7 @@ Visual Studio 2017 Version 15.6.6 or later from https://visualstudio.microsoft.c
 * The window can be closed, moved, maximized and minimized.
 
 ## Graphical User Interface
-![Gui](./Properties/images/schema.png)
+![Gui](./ShapesDrawer/Properties/images/schema.png)
 
 ## Project status 
 In development. 
