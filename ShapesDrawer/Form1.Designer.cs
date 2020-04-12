@@ -65,6 +65,7 @@
             this.panel20 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.toolbar = new System.Windows.Forms.Panel();
+            this.clear = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.toolbar.SuspendLayout();
             this.SuspendLayout();
@@ -470,6 +471,7 @@
             this.toolbar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.toolbar.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.toolbar.Controls.Add(this.clear);
             this.toolbar.Controls.Add(this.rectangle);
             this.toolbar.Controls.Add(this.line);
             this.toolbar.Controls.Add(this.freeHand);
@@ -481,6 +483,19 @@
             this.toolbar.Name = "toolbar";
             this.toolbar.Size = new System.Drawing.Size(876, 41);
             this.toolbar.TabIndex = 34;
+            // 
+            // clear
+            // 
+            this.clear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("clear.BackgroundImage")));
+            this.clear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.clear.FlatAppearance.BorderSize = 0;
+            this.clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clear.Location = new System.Drawing.Point(290, 0);
+            this.clear.Name = "clear";
+            this.clear.Size = new System.Drawing.Size(44, 36);
+            this.clear.TabIndex = 29;
+            this.clear.UseVisualStyleBackColor = true;
+            this.clear.Click += new System.EventHandler(this.clear_Click);
             // 
             // Form1
             // 
@@ -563,6 +578,7 @@
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Panel toolbar;
+        private System.Windows.Forms.Button clear;
     }
 }
 

@@ -204,5 +204,10 @@ namespace ShapesDrawer
                 WM_NCLBUTTONDOWN, HTCAPTION, 0);
             }
         }
+
+        private void clear_Click(object sender, EventArgs e)
+        {
+            this.drawPanel.BackgroundImage = null;
+        }
     }
 }
