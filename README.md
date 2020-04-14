@@ -47,4 +47,4 @@ In development.
 ## Other information
 * Author: Mariola Wójcik
 * E-Mail: mwojcik95@gmail.com 
-* License: open-source 
+* License: MIT 
